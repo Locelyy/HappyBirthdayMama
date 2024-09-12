@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mama</title>
+    <style>
+
+        @font-face {
+            font-family: 'Permanent Marker';
+            src: url('PermanentMarker-Regular.ttf') format('truetype'); /* Update with the correct path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        /* Fixed black background */
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1; /* Ensure it stays behind other elements */
+        }
+
+        /* Blurred background image */
+        .background {
+            width: 100%;
+            height: auto;
+            filter: blur(30px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2; /* This goes behind the foreground content */
+        }
+
+        .scrollable-content {
+        position: relative;
+        z-index: 3; /* Ensure it stays above the blurred background */
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        }
+
+        .scrollable-img {
+            display: flex; /* Enables Flexbox */
+            flex-wrap: wrap; /* Allows wrapping of images */
+            justify-content: center; /* Centers images horizontally */
+            gap: 20px; /* Adds space between images */
+        }
+
+        .scrollable-img img {
+            width: 1080px; /* Fixed width for each image */
+            height: 1920px; /* Fixed height for each image */
+            box-shadow: none;
+            border: none;
+            margin: 0;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .scrollable-img {
+                flex-direction: column; /* Stacks images vertically on small screens */
+                align-items: center; /* Centers images horizontally */
+            }
+
+            .scrollable-img img {
+                width: 90%; /* Makes images responsive */
+                height: auto; /* Maintains aspect ratio */
+            }
+        }
+
+
+         .artboard {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            background-image: url('img/expandingphoto.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures it covers the entire screen while maintaining aspect ratio */
+            z-index: 4;
+            position: relative;
+        }
+
+         .birthday-message {
+      
+            color: white;
+            font-size: 3rem;
+            font-family: 'Permanent Marker', cursive;
+            font-weight: 400;
+            word-wrap: break-word;
+            text-shadow: 0px 4px 4px #000;
+            text-align: center;
+            margin: 20px auto; /* Center the container horizontally */
+            transform: rotate(-5.44deg);
+            transform-origin: 0 0;
+            position: relative;
+            z-index: 5; /* Ensure it is above other content */
+            max-width: 60%; /* Ensures the message doesn't stretch too wide */
+            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+            margin-top: 250px; /* Ensures there is space above the message */
+           
+         }
+
+        .birthday-message a {
+            text-decoration: none; /* Remove underline from the link */
+            color: inherit; /* Inherit the text color from the parent element */
+            font-family: 'Permanent Marker', cursive; /* Match the font-family if needed */
+            font-size: 3rem; /* Match the font-size of the parent element */
+            text-shadow: 0px 4px 4px #000; /* Match the text-shadow if needed */
+        }
+
+         .birthday-message a:hover {
+            color: #fff; /* Change to a color of your choice on hover */
+            text-decoration: underline; /* Add underline on hover if desired */
+        }
+
+         .birthday-message2 {
+            color: white;
+            font-size: 3rem;
+            font-family: 'Permanent Marker', cursive;
+            font-weight: 400;
+            word-wrap: break-word;
+            text-shadow: 0px 4px 4px #000;
+            text-align: center;
+            margin: 20px auto; /* Center the container horizontally */
+            transform-origin: 0 0;
+            position: relative;
+            z-index: 5; /* Ensure it is above other content */
+            max-width: 60%; /* Ensures the message doesn't stretch too wide */
+            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+            margin-top: 250px; /* Ensures there is space above the message */
+
+         }
+
+         .Foto-berdua {
+            width: 70vw; /* Full viewport width */
+            height: 70vh; /* Full viewport height */
+            rotate: (11deg);
+            background-image: url('img/fotoberdua.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures it covers the entire screen while maintaining aspect ratio */
+            z-index: 4;
+            position: relative;
+         }
+
+        /* Ensure the birthday story image fits the container and is centered */        
+            .image-container {
+            background-color: rgba(211, 211, 211, 0.2);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%; /* Ensure it takes up space */
+            min-width: 225px;
+            min-height: 695px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+
+        /* Ensure the artboard image fits the container and is centered */
+        img[src="img/expandingphoto.png"] {
+            max-width: 100%;
+            max-height: 100vh;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Ensure the Foto-Keluarga image fits the container and is centered */
+        img[src="img/fotoberdua.png"] {
+            max-width: 100%;
+            max-height: 100vh; /* Adjust to fit within the viewport height */
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer {
+            width: 100vw;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .footer h4 {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 400;
+            margin: 0;
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        .footer a {
+            color: #bfbfbf;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+        .footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            transform: none;
+            width: 100%;
+            border-radius: 0;
+        }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Fixed black background -->
+    <div class="fixed-bg"></div>
+
+    <!-- Blurred background image (fixed behind content) -->
+    <img class="background" src="img/backgroundweb.png" alt="Background" />
+
+    <!-- Scrollable content -->
+    <div class="scrollable-content">
+        <!-- Birthday and artboard images -->
+        
+        <div class="image-container">
+            <img src="img/Ucapan.png" alt="Birthday Story">
+        </div>
+
+        <img src="img/expandingphoto.png" alt="Artboard Img" />
+
+        <div class="birthday-message">
+           <a href="https://www.youtube.com/watch?v=mAJa4SF_VVI">Wishing you the happiest 18th birthday from your son</a> 
+        </div>
+
+    <div class="scrollable-img">
+
+        <img src="img/1.png" alt="Foto-1" />
+
+        <img src="img/2.png" alt="Foto-2"/>
+
+        <img src="img/3.png" alt="Foto-3"/>
+
+        <img src="img/4.png" alt="Foto-4"/>
+
+
+    </div>
+
+        <div class="birthday-message2">
+            On your special day, I want you to know how much you mean to me. You've been my guiding light and my biggest supporter. Every lesson you've taught me has shaped me into who I am today. I'm endlessly grateful for your kindness, patience, and the love you show in everything you do. I hope today brings you as much happiness as you've brought into my life. Wishing you a day filled with love, laughter, and all the joy you deserve. Happy Birthday, Mama. Much love Kiko ❤️
+        </div>
+
+    <div class="scrollable-img">
+
+        <img src="img/fotoberdua.png" alt="Foto-berdua"/>
+
+    </div>
+
+    <div class="footer">
+            <h4>
+                <a href="https://www.instagram.com/acquirell/">Made with love by Kiko</a>
+            </h4>
+    </div>
+</body>
+</html>
